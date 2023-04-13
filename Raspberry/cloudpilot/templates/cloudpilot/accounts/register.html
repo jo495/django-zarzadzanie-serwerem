@@ -1,0 +1,15 @@
+<h1>Zarejestruj się</h1>
+
+<form method="POST" action="">
+    {% csrf_token %}
+    
+    {% for field in form %}
+        {{field.label}}
+        {{field}}
+        <br/>
+    {% endfor %}
+
+    {{form.errors}}
+
+    <input type="submit" name="Utwórz użytkownika">
+</form>

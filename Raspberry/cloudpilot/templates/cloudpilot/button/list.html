@@ -1,0 +1,38 @@
+{% extends "cloudpilot/base.html" %}
+{% comment %} wyżej dziedziczenie, linki w templatach podajemy zawsze z poziomu folderu templates? {% endcomment %}
+
+{% comment %} tutaj dodajemy treść do bloków, które zostaną przekazane templateowi z którego dziedziczymy {% endcomment %}
+{% block title %}Cloudpilot{% endblock %}
+
+{% block content %}
+    <h3><span>Witaj, {{request.user}}</span></h3>
+    <a href=" /logout"><button class="button2" style="vertical-align:middle"><span>Wyloguj</span></button></a>
+
+    <h1>Moduły</h1>
+
+      </table>
+    {% for button in buttons %}
+        {% if userAccessLevel >= button.accessLevel %}
+        <table>
+            <tr>
+            <td>{{button.title}}</td>
+            {% if button.isOn %}
+            <th style="color:#45a44d">Włączony</th>
+            <td> </td>
+            {%else%}
+            <td>Wyłączony</td>
+            <td><a href=" /{{button.id}}"><button class="button" style="vertical-align:middle"><span>Włącz</span></button></a></td>
+            {% endif %}
+        {% endif %}
+            
+            </tr>
+        </table>
+    
+        {{post.body|truncatewords:30|linebreaks}}
+    {% endfor %}
+    <p class="p1">Wszystkie moduły zostaną wyłączone po wylogowaniu się z VPN</p>
+    {% endblock %}
+
+
+
+

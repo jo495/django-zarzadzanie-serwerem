@@ -1,0 +1,17 @@
+{% load static %}
+{% comment %} dzięki temu można dołączć pliki statyczne {% endcomment %}
+
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        {% comment %} szablony dziedziczące po tym szablonie będą mogły wstawiać treść w te bloki {% endcomment %}
+        <title>{% block title %} {% endblock %} </title>
+        <link href="{% static "css/cloudpilot.css" %}" rel="stylesheet">
+    </head>
+    <body>
+        <div id="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+    </html>

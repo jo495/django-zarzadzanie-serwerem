@@ -1,0 +1,14 @@
+<h1>Zaloguj się</h1>
+
+{% for message in messages %}
+    <p>{{message}}</p>
+{% endfor %}
+
+<form action='' method='POST'>
+{% csrf_token %}
+
+<input type="text" name="username" placeholder="Nazwa użytkownika" class="form-control">
+<input type="password" name="password" placeholder="Hasło" class="form-control">
+<input type="submit" value="Zaloguj">
+
+</form>
